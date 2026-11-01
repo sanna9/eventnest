@@ -1,8 +1,8 @@
-package com.example.myapplication.data.dao;
+package com.example.eventnest.data.dao;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
-import com.example.myapplication.data.entity.Notification;
+import com.example.eventnest.data.entity.Notification;
 import java.util.List;
 
 @Dao

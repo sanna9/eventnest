@@ -1,26 +1,19 @@
-package com.example.myapplication;
+package com.example.eventnest;
 
 import android.os.Bundle;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.room.Room;
 
-import com.example.myapplication.data.database.AppDatabase;
-import com.example.myapplication.databinding.ActivityMainBinding;
+import com.example.eventnest.data.database.AppDatabase;
+import com.example.eventnest.databinding.ActivityMainBinding;
+
 
 public class MainActivity extends AppCompatActivity {
-
-    // Binding gives access to views in activity_main.xml.
     ActivityMainBinding binding;
-
-    // Holds the Room database connection.
     AppDatabase db;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
                 )
                 .allowMainThreadQueries()
                 .build();
-        // Temporary check: run a query to open and verify the database.
         try {
             int eventCount = db.eventDao().getAllEvents().size();
 

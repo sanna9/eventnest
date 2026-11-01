@@ -1,11 +1,11 @@
-package com.example.myapplication.data.dao;
+package com.example.eventnest.data.dao;
 
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.example.myapplication.data.entity.Event;
+import com.example.eventnest.data.entity.Event;
 
 import java.util.List;
 
