@@ -1,16 +1,16 @@
-package com.example.myapplication.data.database;
+package com.example.eventnest.data.database;
 import androidx.room.Database;
 import androidx.room.RoomDatabase;
 
-import com.example.myapplication.data.dao.UserDao;
-import com.example.myapplication.data.dao.EventDao;
-import com.example.myapplication.data.dao.RegistrationDao;
-import com.example.myapplication.data.dao.NotificationDao;
+import com.example.eventnest.data.dao.UserDao;
+import com.example.eventnest.data.dao.EventDao;
+import com.example.eventnest.data.dao.RegistrationDao;
+import com.example.eventnest.data.dao.NotificationDao;
 
-import com.example.myapplication.data.entity.User;
-import com.example.myapplication.data.entity.Event;
-import com.example.myapplication.data.entity.Registration;
-import com.example.myapplication.data.entity.Notification;
+import com.example.eventnest.data.entity.User;
+import com.example.eventnest.data.entity.Event;
+import com.example.eventnest.data.entity.Registration;
+import com.example.eventnest.data.entity.Notification;
 
 @Database(
         entities = {

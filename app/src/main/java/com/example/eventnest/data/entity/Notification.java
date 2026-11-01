@@ -1,4 +1,4 @@
-package com.example.myapplication.data.entity;
+package com.example.eventnest.data.entity;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
