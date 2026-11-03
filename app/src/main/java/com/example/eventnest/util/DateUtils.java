@@ -1,0 +1,57 @@
+package com.example.eventnest.data.utils;
+
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.util.Locale;
+
+@RequiresApi(api = Build.VERSION_CODES.O)
+public class DateUtils {
+    public DateUtils() {}
+
+/**
+ * utils for formatting date, skip Locale,
+ * current format date is yyyy-MM-dd and time is 00:00 (24 hours)
+ * @param year Year to format (ex: 2026)
+ * @param month Month to format **DatePickerDialog is using zero based so we have to +1
+ * @param day Day of the month
+ * @return formatted day (2026-10-03) (DatePickerDialog will pick 9 as October).
+ *
+ * @sample
+ * DateUtils.formatDate(2026, 4, 9) returns 2026-05-09
+ */
+
+    public static String formatDate(int year, int month, int day) {
+        return LocalDate.of(year, month+1, day).toString();
+    }
+
+    public static String formatTime(int hour, int minute) {
+        return LocalTime.of(hour, minute).format(DateTimeFormatter.ofPattern("HH:mm"));
+    }
+
+    public static String today() {
+        return LocalDate.now().toString();
+    }
+
+/**
+ * convert date from 2026-10-10 into "Oct 10, 2026"
+ */
+    public static String displayDate(String date) {
+        if (date == null || date.isEmpty()) {
+            return date;
+        }
+        try {
+            LocalDate dateDisplay = LocalDate.parse(date, DateTimeFormatter.ISO_LOCAL_DATE);
+            // Locale.getDefault will display based on user's devices
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd, yyyy", Locale.getDefault());
+            return dateDisplay.format(formatter);
+        } catch (DateTimeParseException e) {
+            return date;
+        }
+    }
+}
