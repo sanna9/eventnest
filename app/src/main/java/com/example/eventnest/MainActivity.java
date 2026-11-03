@@ -1,15 +1,17 @@
 package com.example.eventnest;
 
 import android.os.Bundle;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.room.Room;
 
 import com.example.eventnest.data.database.AppDatabase;
 import com.example.eventnest.databinding.ActivityMainBinding;
-
+import com.example.eventnest.util.OrganizerSetup;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
@@ -20,6 +22,23 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        ViewCompat.setOnApplyWindowInsetsListener(
+                binding.getRoot(), (v, insets) -> {
+
+                    Insets systemBars = insets.getInsets(
+                            WindowInsetsCompat.Type.systemBars()
+                    );
+
+                    v.setPadding(
+                            systemBars.left,
+                            systemBars.top,
+                            systemBars.right,
+                            systemBars.bottom
+                    );
+
+                    return insets;
+                }
+        );
         db = Room.databaseBuilder(
                         getApplicationContext(),
                         AppDatabase.class,
@@ -27,21 +46,6 @@ public class MainActivity extends AppCompatActivity {
                 )
                 .allowMainThreadQueries()
                 .build();
-        try {
-            int eventCount = db.eventDao().getAllEvents().size();
-
-            Toast.makeText(
-                    this,
-                    "Database connected. Events: " + eventCount,
-                    Toast.LENGTH_LONG
-            ).show();
-
-        } catch (Exception e) {
-            Toast.makeText(
-                    this,
-                    "Database error: " + e.getMessage(),
-                    Toast.LENGTH_LONG
-            ).show();
-        }
+        OrganizerSetup.createOrganizerIfNeeded(db);
     }
 }
