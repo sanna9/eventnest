@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EventNest">
         <activity
+            android:name=".ui.organizer.OrganizerDashboardActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.auth.LoginActivity"
             android:exported="true">
             <intent-filter>

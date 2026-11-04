@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Pale teal background, matching the dashboard wireframe. -->
+    <solid android:color="#DCEFEA" />
+
+    <!-- Rounded corners around the icon background. -->
+    <corners android:radius="12dp" />
+
+</shape>
