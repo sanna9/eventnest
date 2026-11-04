@@ -19,6 +19,7 @@ import com.example.eventnest.data.database.AppDatabase;
 import com.example.eventnest.data.entity.User;
 import com.example.eventnest.data.model.Role;
 import com.example.eventnest.databinding.ActivityLoginBinding;
+import com.example.eventnest.ui.organizer.OrganizerDashboardActivity;
 import com.example.eventnest.util.AppExecutors;
 import com.example.eventnest.util.OrganizerSetup;
 import com.example.eventnest.util.PasswordUtils;
@@ -168,9 +169,20 @@ public class LoginActivity extends AppCompatActivity {
 
     private void openDashboard(Role role) {
         if (role == Role.ORGANIZER) {
-            // Modify this section for Dashboard Organizer later
-            // TODO: startActivity(new Intent(this, OrganizerDashboardActivity.class));
-            Toast.makeText(this, "logged as organizer", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(
+                    this,
+                    OrganizerDashboardActivity.class
+            );
+
+            // Clear previous screens so Back cannot return to login.
+            intent.addFlags(
+                    Intent.FLAG_ACTIVITY_NEW_TASK
+                            | Intent.FLAG_ACTIVITY_CLEAR_TASK
+            );
+
+            startActivity(intent);
+            finish();
+
         } else if (role == Role.STUDENT) {
             // Modify this section for Dashboard Student later
             // TODO: startActivity(new Intent(this, MainActivity.class));
