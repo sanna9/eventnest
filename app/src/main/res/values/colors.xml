@@ -2,4 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="eventnest_background">#F5F3EF</color>
+    <color name="eventnest_primary">#0B6B5E</color>
+    <color name="eventnest_text">#16212B</color>
+    <color name="eventnest_text_secondary">#5F6B76</color>
+    <color name="eventnest_stroke">#E0DCD5</color>
 </resources>

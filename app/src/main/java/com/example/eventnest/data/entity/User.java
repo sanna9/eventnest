@@ -5,6 +5,8 @@ import androidx.room.Entity;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
+import com.example.eventnest.data.model.Role;
+
 @Entity(
         tableName = "Users",
         indices = {
@@ -27,7 +29,10 @@ public class User {
     private String passwordHash;
 
     @ColumnInfo(name = "Role")
-    private String role;
+    private Role role;
+
+    @ColumnInfo(name = "isActive")
+    private boolean active = true;
 
     public int getUserID() {
         return userID;
@@ -61,11 +66,19 @@ public class User {
         this.passwordHash = passwordHash;
     }
 
-    public String getRole() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(Role role) {
         this.role = role;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }

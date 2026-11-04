@@ -1,3 +1,22 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">EventNest</string>
+
+    <!--  Login  -->
+    <string name="login_subtitle">Sign in to browse and register for events.</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="button_sign_in">Sign In</string>
+    <string name="signing_in">Signing in…</string>
+    <string name="label_new_student">New student?</string>
+    <string name="link_sign_up">Student Sign Up</string>
+    <string name="error_email_required">Enter your email</string>
+    <string name="error_password_required">Enter your password</string>
+    <string name="error_invalid_credentials">Incorrect email or password</string>
+    <string name="error_account_deactivated">This account has been deactivated</string>
+    <string name="sign_up_coming_soon">Sign up is coming soon</string>
+    <string name="welcome_user">Welcome, %1$s</string>
+    <string name="dashboard_student_placeholder">Student dashboard (placeholder)</string>
+    <string name="dashboard_organizer_placeholder">Organizer dashboard (placeholder)</string>
+    <string name="button_logout">Log out</string>
+
 </resources>
