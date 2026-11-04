@@ -1,5 +1,8 @@
 package com.example.eventnest.data.database;
+import android.content.Context;
+
 import androidx.room.Database;
+import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import com.example.eventnest.data.dao.UserDao;
@@ -27,4 +30,26 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract EventDao eventDao();
     public abstract RegistrationDao registrationDao();
     public abstract NotificationDao notificationDao();
+
+    /**
+     *  Singleton pattern for performance optimize
+     *  volatile for preventing thread-local caching issues where changes made or
+     *  double-checked locking
+     */
+    private static volatile AppDatabase instance;
+
+    public static AppDatabase getInstance(Context context) {
+        if (instance == null) {
+            synchronized (AppDatabase.class) {
+                if (instance == null) {
+                    instance = Room.databaseBuilder(
+                            context.getApplicationContext(),
+                            AppDatabase.class,
+                            "EventNest.db"
+                    ).build();
+                }
+            }
+        }
+        return instance;
+    }
 }

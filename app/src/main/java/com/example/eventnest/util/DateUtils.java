@@ -1,4 +1,4 @@
-package com.example.eventnest.data.utils;
+package com.example.eventnest.util;
 
 import android.os.Build;
 
@@ -10,6 +10,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Locale;
 
+// Requires SDK 26+
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class DateUtils {
     public DateUtils() {}
