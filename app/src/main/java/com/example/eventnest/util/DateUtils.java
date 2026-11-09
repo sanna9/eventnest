@@ -55,4 +55,63 @@ public class DateUtils {
             return date;
         }
     }
+
+    /**
+     * Returns the short month for the event's date badge.
+     * Example: "2026-11-15" becomes "NOV".
+     */
+    public static String displayMonth(String date) {
+        if (date == null || date.isEmpty()) {
+            return "";
+        }
+
+        try {
+            return LocalDate.parse(date)
+                    .format(DateTimeFormatter.ofPattern(
+                            "MMM", Locale.getDefault()
+                    ))
+                    .toUpperCase(Locale.getDefault());
+
+        } catch (DateTimeParseException e) {
+            return "";
+        }
+    }
+
+    /**
+     * Returns the day number for the event's date badge.
+     * Example: "2026-11-15" becomes "15".
+     */
+    public static String displayDay(String date) {
+        if (date == null || date.isEmpty()) {
+            return "";
+        }
+
+        try {
+            return LocalDate.parse(date)
+                    .format(DateTimeFormatter.ofPattern("dd"));
+
+        } catch (DateTimeParseException e) {
+            return "";
+        }
+    }
+
+    /**
+     * Converts stored 24-hour time into readable time.
+     * Example: "14:30" becomes "2:30 PM" with an English locale.
+     */
+    public static String displayTime(String time) {
+        if (time == null || time.isEmpty()) {
+            return "";
+        }
+
+        try {
+            return LocalTime.parse(time)
+                    .format(DateTimeFormatter.ofPattern(
+                            "h:mm a", Locale.getDefault()
+                    ));
+
+        } catch (DateTimeParseException e) {
+            return time;
+        }
+    }
 }

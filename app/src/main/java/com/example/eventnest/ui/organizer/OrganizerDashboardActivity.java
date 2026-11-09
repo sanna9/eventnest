@@ -3,11 +3,13 @@ package com.example.eventnest.ui.organizer;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.eventnest.R;
 import com.example.eventnest.data.model.Role;
 import com.example.eventnest.databinding.ActivityOrganizerDashboardBinding;
 import com.example.eventnest.ui.auth.LoginActivity;
@@ -25,31 +27,29 @@ public class OrganizerDashboardActivity extends AppCompatActivity {
 
         session = new SessionManager(this);
 
-        // Only a signed-in organizer can access this screen.
         if (!session.isLoggedIn()
                 || session.getRole() != Role.ORGANIZER) {
-
             returnToLogin();
             return;
         }
 
         EdgeToEdge.enable(this);
 
-        // display dashboard using ViewBinding
         binding = ActivityOrganizerDashboardBinding.inflate(
                 getLayoutInflater()
         );
         setContentView(binding.getRoot());
-        // Apply system-bar padding using the existing helper.
+
+        // resuing the padding helper.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             UiUtils.applySystemBarPadding(binding.getRoot());
         }
 
-        // Temporary messages until the destination screens are built.
         binding.cardManageEvents.setOnClickListener(v ->
-                showMessage("Manage Events")
+                openManageEvents()
         );
 
+        // screens will be connected in upcoming tasks
         binding.cardRegisteredStudents.setOnClickListener(v ->
                 showMessage("Registered Students")
         );
@@ -62,14 +62,58 @@ public class OrganizerDashboardActivity extends AppCompatActivity {
                 showMessage("Send Notification")
         );
 
-        // Clear the saved session and return to login
         binding.buttonLogout.setOnClickListener(v -> {
             session.logout();
             returnToLogin();
         });
+
+        // Update the visible screen when a Fragment opens or Back is pressed
+        getSupportFragmentManager().addOnBackStackChangedListener(
+                () -> updateDashboardVisibility()
+        );
+
+        // Also handles a Fragment restored after screen rotation
+        updateDashboardVisibility();
     }
 
-    // Temporarily confirms which card was tapped.
+    /* Opens Manage Events and remembers the dashboard in navigation history */
+    private void openManageEvents() {
+
+        // won't allow repeated taps from opening duplicate screens
+        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+            return;
+        }
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(
+                        R.id.organizerFragmentContainer,
+                        new EventListFragment()
+                )
+                .addToBackStack("manage_events")
+                .commit();
+    }
+
+    /*Shows either the dashboard controls or the Fragment screen
+     showing the Fragment from the back stack restores the dashboard */
+    private void updateDashboardVisibility() {
+
+        boolean fragmentOpen =
+                getSupportFragmentManager().getBackStackEntryCount() > 0;
+
+        int dashboardVisibility =
+                fragmentOpen ? View.GONE : View.VISIBLE;
+
+        binding.textDashboardTitle.setVisibility(dashboardVisibility);
+        binding.dashboardCards.setVisibility(dashboardVisibility);
+        binding.buttonLogout.setVisibility(dashboardVisibility);
+
+        binding.organizerFragmentContainer.setVisibility(
+                fragmentOpen ? View.VISIBLE : View.GONE
+        );
+    }
+
+    /** Displays temporary feedback for unfinished sections */
     private void showMessage(String message) {
         Toast.makeText(
                 this,
@@ -78,7 +122,8 @@ public class OrganizerDashboardActivity extends AppCompatActivity {
         ).show();
     }
 
-    // Clear the navigation history so Back cannot reopen the dashboard.
+
+    /** Opens login and clears previous screens from navigation history  **/
     private void returnToLogin() {
         Intent intent = new Intent(this, LoginActivity.class);
 

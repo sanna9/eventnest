@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="0dp"
+    app:strokeColor="@color/eventnest_stroke"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <!--  event list -->
+        <LinearLayout
+            android:layout_width="52dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_dashboard_icon"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/textEventMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/eventnest_primary"
+                android:textSize="12sp"
+                tools:text="NOV" />
+
+            <TextView
+                android:id="@+id/textEventDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/eventnest_primary"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                tools:text="15" />
+
+        </LinearLayout>
+
+        <!-- event details filled by the adapter -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textEventTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/eventnest_text"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:text="Intro to Android Workshop" />
+
+            <TextView
+                android:id="@+id/textEventDateTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/eventnest_text_secondary"
+                android:textSize="12sp"
+                tools:text="Sun, Nov 15 • 9:00 AM" />
+
+            <TextView
+                android:id="@+id/textEventLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/eventnest_text_secondary"
+                android:textSize="12sp"
+                tools:text="Hall B, Engineering Building" />
+
+        </LinearLayout>
+
+        <!-- clicking the row opens event details -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:importantForAccessibility="no"
+            android:text="›"
+            android:textColor="@color/eventnest_text_secondary"
+            android:textSize="26sp" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
