@@ -25,6 +25,7 @@
 
     <!-- Cards can scroll on smaller screens. -->
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/dashboardCards"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
@@ -269,5 +270,17 @@
         app:strokeWidth="1dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+    <!-- Hosts organizer sections such as Manage Events.
+     Hidden while the dashboard cards are displayed. -->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/organizerFragmentContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/eventnest_background"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
