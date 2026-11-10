@@ -42,6 +42,8 @@ public class Event {
 
     @ColumnInfo(name = "Location")
     private String location;
+    @ColumnInfo(name = "Capacity", defaultValue = "0")
+    private int capacity;
 
 //getter setters
     public int getEventID() {
@@ -99,4 +101,8 @@ public class Event {
     public void setLocation(String location) {
         this.location = location;
     }
+
+    public int getCapacity() { return capacity; }
+
+    public void setCapacity(int capacity) { this.capacity = capacity; }
 }
