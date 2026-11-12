@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/eventnest_background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/signup_title"
+            android:textColor="@color/eventnest_text"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/signup_subtitle"
+            android:textColor="@color/eventnest_text_secondary"
+            android:textSize="16sp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutName"
+            style="@style/Widget.EventNest.TextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:hint="@string/hint_name"
+            app:startIconDrawable="@drawable/ic_people">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="textPersonName|textCapWords"
+                android:maxLength="50"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutEmail"
+            style="@style/Widget.EventNest.TextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="@string/hint_email"
+            app:startIconDrawable="@drawable/ic_mail">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--    app:endIconMode="password_toggle" is for showing password   -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutPassword"
+            style="@style/Widget.EventNest.TextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="@string/hint_password"
+            app:endIconMode="password_toggle"
+            app:startIconDrawable="@drawable/ic_lock">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="textPassword"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutConfirmPassword"
+            style="@style/Widget.EventNest.TextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="@string/hint_confirm_password"
+            app:endIconMode="password_toggle"
+            app:startIconDrawable="@drawable/ic_lock">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputConfirmPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonCreateAccount"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/eventnest_primary"
+            android:text="@string/button_create_account"
+            android:textSize="16sp"
+            app:cornerRadius="28dp" />
+
+        <TextView
+            android:id="@+id/textBackToSignIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:clickable="true"
+            android:drawablePadding="8dp"
+            android:drawableStart="@drawable/ic_arrow_back"
+            android:drawableTint="@color/eventnest_primary"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:minHeight="48dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="@string/link_back_to_sign_in"
+            android:textColor="@color/eventnest_primary"
+            android:textStyle="bold" />
+    </LinearLayout>
+</ScrollView>
