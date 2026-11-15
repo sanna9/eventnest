@@ -22,7 +22,10 @@ import com.example.eventnest.data.entity.Notification;
                 Registration.class,
                 Notification.class
         },
-        version = 1
+        version = 1,
+        // Remove all data whenever rebuild project
+        // avoid firing errors
+        exportSchema = false
 )
 public abstract class AppDatabase extends RoomDatabase {
 

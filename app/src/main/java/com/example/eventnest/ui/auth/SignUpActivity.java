@@ -9,9 +9,6 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.eventnest.R;
 import com.example.eventnest.data.database.AppDatabase;
@@ -131,6 +128,7 @@ public class SignUpActivity extends AppCompatActivity {
             // Success
             case OK:
                 Toast.makeText(this, R.string.toast_account_created, Toast.LENGTH_LONG).show();
+                // Put extra email for login screen so user don't have to type it again
                 setResult(RESULT_OK, new Intent().putExtra(EXTRA_EMAIL, email));
                 finish();
                 break;

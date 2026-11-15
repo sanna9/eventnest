@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/eventnest_background"
+    android:orientation="vertical">
+    <!-- Using ?attr/actionBarSize to dynamically fetch the standard
+      ActionBar height from the current theme, ensuring a responsive design
+      I'm using Medium phone so the height should be 64dp
+    -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/eventnest_background"
+        app:titleTextColor="@color/eventnest_text" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/studentFragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!--  Put bottom menu for navigation  -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/menu_student_bottom_nav" />
+</LinearLayout>
