@@ -7,21 +7,22 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.RequiresApi;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import com.example.eventnest.MainActivity;
 import com.example.eventnest.R;
+
+import androidx.core.graphics.Insets;
+
 import com.example.eventnest.data.database.AppDatabase;
 import com.example.eventnest.data.entity.User;
 import com.example.eventnest.data.model.Role;
 import com.example.eventnest.databinding.ActivityLoginBinding;
 import com.example.eventnest.ui.organizer.OrganizerDashboardActivity;
+import com.example.eventnest.ui.student.StudentDashboardActivity;
 import com.example.eventnest.util.AppExecutors;
-import com.example.eventnest.util.OrganizerSetup;
+import com.example.eventnest.util.DatabaseSeeder;
 import com.example.eventnest.util.PasswordUtils;
 import com.example.eventnest.util.SessionManager;
 import com.example.eventnest.util.UiUtils;
@@ -35,17 +36,32 @@ public class LoginActivity extends AppCompatActivity {
     private AppDatabase db;
     private SessionManager session;
 
+    /**
+     * Get email from signup activity (screen)
+     * for better UX, user no need to type the email again
+     */
+    private final ActivityResultLauncher<Intent> signUpLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+                    String email = result.getData().getStringExtra(SignUpActivity.EXTRA_EMAIL);
+                    if (email != null) {
+                        binding.inputEmail.setText(email);
+                        binding.inputPassword.requestFocus();
+                    }
+                }
+            });
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
 
         session = new SessionManager(this);
-        // TODO: re-enable when the dashboards exist.
-        //        if (session.isLoggedIn()) {
-        //            openDashboard(session.getRole());
-        //            return;
-        //        }
+        if (session.isLoggedIn()) {
+            openDashboard(session.getRole());
+            return;
+        }
 
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -57,9 +73,7 @@ public class LoginActivity extends AppCompatActivity {
         db = AppDatabase.getInstance(this);
         // Init pre-created accounts
         AppExecutors.run(() -> {
-            OrganizerSetup.createOrganizerIfNeeded(db);
-            // Future implementation
-            //OrganizerSetup.createDemoStudentIfNeeded(db);
+            DatabaseSeeder.seed(db);
         });
 
         binding.buttonLogin.setOnClickListener(v -> attemptLogin());
@@ -73,8 +87,7 @@ public class LoginActivity extends AppCompatActivity {
             return false;
         });
         binding.textSignUp.setOnClickListener(v ->
-                // TODO: startActivity(new Intent(this, SignUpActivity.class));
-                Toast.makeText(this, R.string.sign_up_coming_soon, Toast.LENGTH_SHORT).show());
+                signUpLauncher.launch(new Intent(this, SignUpActivity.class)));
     }
 
     private void attemptLogin() {
@@ -113,7 +126,7 @@ public class LoginActivity extends AppCompatActivity {
                 result = LoginResult.DEACTIVATED;
             } else {
                 // Saved here, so the login is kept even if the screen is recreated.
-                session.login(user.getUserID(), user.getRole().toString());
+                session.login(user.getUserID(), user.getRole().name());
                 result = LoginResult.OK;
             }
 
@@ -184,9 +197,10 @@ public class LoginActivity extends AppCompatActivity {
             finish();
 
         } else if (role == Role.STUDENT) {
-            // Modify this section for Dashboard Student later
-            // TODO: startActivity(new Intent(this, MainActivity.class));
-            Toast.makeText(this, "logged as student", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, StudentDashboardActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
         }
         // TODO: re-enable when the dashboards exist.
         //        finish();

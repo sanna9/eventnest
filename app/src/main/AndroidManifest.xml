@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EventNest">
         <activity
+            android:name=".ui.student.StudentDashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.auth.SignUpActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.organizer.OrganizerDashboardActivity"
             android:exported="false" />
         <activity

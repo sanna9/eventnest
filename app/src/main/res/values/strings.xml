@@ -1,6 +1,14 @@
 <resources>
     <string name="app_name">EventNest</string>
-
+    <!--  Nav  -->
+    <string name="nav_events">Events</string>
+    <string name="nav_registrations">My Registrations</string>
+    <string name="nav_history">History</string>
+    <string name="nav_notifications">Notifications</string>
+    <string name="title_available_events">Available Events</string>
+    <string name="title_my_registrations">My Registrations</string>
+    <string name="title_registration_history">Registration History</string>
+    <string name="title_notifications">Notifications</string>
     <!--  Login  -->
     <string name="login_subtitle">Sign in to browse and register for events.</string>
     <string name="hint_email">Email</string>
@@ -18,5 +26,21 @@
     <string name="dashboard_student_placeholder">Student dashboard (placeholder)</string>
     <string name="dashboard_organizer_placeholder">Organizer dashboard (placeholder)</string>
     <string name="button_logout">Log out</string>
+
+    <!--  Sign Up  -->
+    <string name="signup_title">Create your account</string>
+    <string name="signup_subtitle">Student sign up. Use your university email.</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_confirm_password">Confirm Password</string>
+    <string name="button_create_account">Create Account</string>
+    <string name="creating_account">Creating account…</string>
+    <string name="link_back_to_sign_in">Back to Sign In</string>
+    <string name="error_name_required">Enter your name</string>
+    <string name="error_email_invalid">Enter a valid email address</string>
+    <string name="error_email_taken">This email is already registered</string>
+    <string name="error_password_short">Use at least %1$d characters</string>
+    <string name="error_password_mismatch">Passwords do not match</string>
+    <string name="error_signup_failed">Could not create the account. Please try again.</string>
+    <string name="toast_account_created">Account created. Please sign in.</string>
 
 </resources>

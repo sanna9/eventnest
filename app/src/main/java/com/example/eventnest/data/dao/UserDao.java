@@ -8,7 +8,7 @@ import com.example.eventnest.data.entity.User;
 @Dao
 public interface UserDao {
     @Insert
-    void addUser(User user);
+    long addUser(User user);
     @Query("SELECT * FROM Users WHERE Email = :email LIMIT 1")
     User getUserByEmail(String email);
     @Query("SELECT * FROM Users WHERE UserID = :id")
