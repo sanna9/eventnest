@@ -22,7 +22,7 @@
             android:layout_height="48dp"
             android:clickable="true"
             android:focusable="true"
-            android:contentDescription="Back"
+            android:contentDescription="@string/button_back"
             android:padding="12dp"
             android:src="@drawable/ic_arrow_back" />
 
@@ -30,7 +30,7 @@
             android:id="@+id/textFormTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Create Event"
+            android:text="@string/title_create_event"
             android:textColor="@color/eventnest_text"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -61,7 +61,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:labelFor="@+id/inputTitle"
-                    android:text="Title"
+                    android:text="@string/label_event_title"
                     android:textColor="@color/eventnest_text_secondary"
                     android:textSize="12sp" />
 
@@ -91,7 +91,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:labelFor="@+id/inputDescription"
-                    android:text="Description"
+                    android:text="@string/label_event_description"
                     android:textColor="@color/eventnest_text_secondary"
                     android:textSize="12sp" />
 
@@ -136,7 +136,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:labelFor="@+id/inputLocation"
-                        android:text="Location"
+                        android:text="@string/label_event_location"
                         android:textColor="@color/eventnest_text_secondary"
                         android:textSize="12sp" />
 
@@ -172,7 +172,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Date"
+                        android:text="@string/label_event_date"
                         android:textColor="@color/eventnest_text_secondary"
                         android:textSize="12sp" />
 
@@ -191,7 +191,7 @@
                         android:drawablePadding="8dp"
                         android:gravity="center_vertical"
                         android:padding="12dp"
-                        android:text="Select date"
+                        android:text="@string/button_select_date"
                         android:textColor="@color/eventnest_text"
                         android:textSize="14sp" />
 
@@ -207,7 +207,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Time"
+                        android:text="@string/label_event_time"
                         android:textColor="@color/eventnest_text_secondary"
                         android:textSize="12sp" />
 
@@ -225,7 +225,7 @@
                         android:drawablePadding="8dp"
                         android:gravity="center_vertical"
                         android:padding="12dp"
-                        android:text="Select time"
+                        android:text="@string/button_select_time"
                         android:textColor="@color/eventnest_text"
                         android:textSize="14sp" />
 
@@ -246,7 +246,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:labelFor="@+id/inputCapacity"
-                    android:text="Capacity"
+                    android:text="@string/label_event_capacity"
                     android:textColor="@color/eventnest_text_secondary"
                     android:textSize="12sp" />
 
@@ -273,7 +273,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:backgroundTint="@color/eventnest_primary"
-        android:text="Save"
+        android:text="@string/button_save"
         android:textAllCaps="false"
         android:textColor="@color/white" />
 

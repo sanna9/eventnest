@@ -20,6 +20,7 @@ import com.example.eventnest.util.UiUtils;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import com.example.eventnest.R;
 
 public class EventFormActivity extends AppCompatActivity {
 
@@ -66,7 +67,7 @@ public class EventFormActivity extends AppCompatActivity {
         }
 
         if (eventID != -1) {
-            binding.textFormTitle.setText("Edit Event");
+            binding.textFormTitle.setText(R.string.title_edit_event);
             if (savedInstanceState == null) {
                 loadEvent();
             }
@@ -143,7 +144,7 @@ public class EventFormActivity extends AppCompatActivity {
 
                     if (event == null
                             || event.getOrganizerID() != session.getUserId()) {
-                        showMessage("Event not found or access denied");
+                        showMessage(getString(R.string.error_event_access));
                         finish();
                         return;
                     }
@@ -179,17 +180,17 @@ public class EventFormActivity extends AppCompatActivity {
                 binding.inputCapacity.getText().toString().trim();
 
         if (title.isEmpty()) {
-            binding.inputTitle.setError("Enter a title");
+            binding.inputTitle.setError(getString(R.string.error_event_title_required));
             return;
         }
 
         if (description.isEmpty()) {
-            binding.inputDescription.setError("Enter a description");
+            binding.inputDescription.setError(getString(R.string.error_event_description_required));
             return;
         }
 
         if (location.isEmpty()) {
-            binding.inputLocation.setError("Enter a location");
+            binding.inputLocation.setError(getString(R.string.error_event_location_required));
             return;
         }
 
@@ -199,16 +200,16 @@ public class EventFormActivity extends AppCompatActivity {
             capacity = Integer.parseInt(capacityText);
 
             if (capacity <= 0) {
-                binding.inputCapacity.setError("Enter a number above 0");
+                binding.inputCapacity.setError(getString(R.string.error_capacity_positive));
                 return;
             }
         } catch (NumberFormatException e) {
-            binding.inputCapacity.setError("Enter a valid whole number");
+            binding.inputCapacity.setError(getString(R.string.error_capacity_invalid));
             return;
         }
 
         if (selectedDate.isEmpty() || selectedTime.isEmpty()) {
-            showMessage("Select the event date and time");
+            showMessage(getString(R.string.error_event_datetime_required));
             return;
         }
 
@@ -241,7 +242,7 @@ public class EventFormActivity extends AppCompatActivity {
                                 return;
                             }
 
-                            showMessage("Event not found or access denied");
+                            showMessage(getString(R.string.error_event_access));
                             finish();
                         });
                         return;
@@ -256,7 +257,7 @@ public class EventFormActivity extends AppCompatActivity {
                         return;
                     }
 
-                    showMessage("Event saved");
+                    showMessage(getString(R.string.toast_event_saved));
                     finish();
                 });
 
@@ -274,7 +275,7 @@ public class EventFormActivity extends AppCompatActivity {
             }
 
             binding.buttonSave.setEnabled(true);
-            showMessage("Database operation failed");
+            showMessage(getString(R.string.error_database_operation));
         });
     }
 
