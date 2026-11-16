@@ -1,5 +1,6 @@
 package com.example.eventnest.ui.organizer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -77,14 +78,15 @@ public class EventListFragment extends Fragment {
                         .onBackPressed()
         );
 
-        // We will connect the Create Event screen in O3.
-        binding.buttonCreateEvent.setOnClickListener(v ->
-                Toast.makeText(
-                        requireContext(),
-                        "Create Event screen comes next",
-                        Toast.LENGTH_SHORT
-                ).show()
-        );
+
+        // Open the Create Event screen
+        binding.buttonCreateEvent.setOnClickListener(v -> {
+            Intent intent = new Intent(
+                    requireContext(),
+                    EventFormActivity.class
+            );
+            startActivity(intent);
+        });
     }
 
     /**
