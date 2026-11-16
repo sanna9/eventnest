@@ -12,7 +12,7 @@ import java.util.List;
 @Dao
 public interface EventDao {
     @Insert
-    void addEvent(Event event);
+    long addEvent(Event event);
 
     // dates yyyy-MM-dd and time HH:mm for correct sorting
     @Query("SELECT * FROM Events ORDER BY EventDate, EventTime")

@@ -11,7 +11,7 @@ import androidx.room.Room;
 
 import com.example.eventnest.data.database.AppDatabase;
 import com.example.eventnest.databinding.ActivityMainBinding;
-import com.example.eventnest.util.OrganizerSetup;
+import com.example.eventnest.util.DatabaseSeeder;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
@@ -39,13 +39,13 @@ public class MainActivity extends AppCompatActivity {
                     return insets;
                 }
         );
-        db = Room.databaseBuilder(
-                        getApplicationContext(),
-                        AppDatabase.class,
-                        "EventNest.db"
-                )
-                .allowMainThreadQueries()
-                .build();
-        OrganizerSetup.createOrganizerIfNeeded(db);
+//        db = Room.databaseBuilder(
+//                        getApplicationContext(),
+//                        AppDatabase.class,
+//                        "EventNest.db"
+//                )
+//                .allowMainThreadQueries()
+//                .build();
+//        DatabaseSeeder.createOrganizerIfNeeded(db);
     }
 }

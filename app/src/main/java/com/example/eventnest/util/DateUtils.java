@@ -1,9 +1,5 @@
 package com.example.eventnest.util;
 
-import android.os.Build;
-
-import androidx.annotation.RequiresApi;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -11,7 +7,6 @@ import java.time.format.DateTimeParseException;
 import java.util.Locale;
 
 // Requires SDK 26+
-@RequiresApi(api = Build.VERSION_CODES.O)
 public class DateUtils {
     public DateUtils() {}
 
@@ -113,5 +108,9 @@ public class DateUtils {
         } catch (DateTimeParseException e) {
             return time;
         }
+    }
+
+    public static String daysFromToday(int days) {
+        return LocalDate.now().plusDays(days).toString();
     }
 }
