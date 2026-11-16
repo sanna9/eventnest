@@ -49,7 +49,7 @@ public abstract class AppDatabase extends RoomDatabase {
         }
     };
 
-    /*returns the shared database instance
+    /*Returns the shared database instance.
      * Creates it once and applies migrations when required */
     public static AppDatabase getInstance(Context context) {
 
