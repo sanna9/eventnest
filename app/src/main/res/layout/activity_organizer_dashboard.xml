@@ -15,7 +15,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        android:text="Organizer Dashboard"
+        android:text="@string/title_organizer_dashboard"
         android:textColor="@color/eventnest_text"
         android:textSize="22sp"
         android:textStyle="bold"
@@ -86,7 +86,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Manage Events"
+                            android:text="@string/title_manage_events"
                             android:textColor="@color/eventnest_text"
                             android:textSize="15sp"
                             android:textStyle="bold" />
@@ -132,7 +132,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Registered Students"
+                            android:text="@string/title_registered_students"
                             android:textColor="@color/eventnest_text"
                             android:textSize="15sp"
                             android:textStyle="bold" />
@@ -188,7 +188,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Monthly Report"
+                            android:text="@string/title_monthly_report"
                             android:textColor="@color/eventnest_text"
                             android:textSize="15sp"
                             android:textStyle="bold" />
@@ -234,7 +234,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Send Notification"
+                            android:text="@string/title_send_notification"
                             android:textColor="@color/eventnest_text"
                             android:textSize="15sp"
                             android:textStyle="bold" />
@@ -257,7 +257,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="16dp"
         android:minHeight="48dp"
-        android:text="Logout"
+        android:text="@string/button_logout"
         android:textColor="#B3261E"
         app:backgroundTint="@android:color/transparent"
         app:cornerRadius="24dp"

@@ -17,6 +17,7 @@ import com.example.eventnest.data.entity.Event;
 import com.example.eventnest.databinding.FragmentEventListBinding;
 import com.example.eventnest.ui.adapters.EventAdapter;
 import com.example.eventnest.util.AppExecutors;
+import com.example.eventnest.R;
 
 import java.util.List;
 
@@ -135,7 +136,7 @@ public class EventListFragment extends Fragment {
 
                     Toast.makeText(
                             binding.getRoot().getContext(),
-                            "Could not load events",
+                            getString(R.string.error_events_load),
                             Toast.LENGTH_LONG
                     ).show();
                 });
