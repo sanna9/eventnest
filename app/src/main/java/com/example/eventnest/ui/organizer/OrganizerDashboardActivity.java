@@ -51,15 +51,15 @@ public class OrganizerDashboardActivity extends AppCompatActivity {
 
         // screens will be connected in upcoming tasks
         binding.cardRegisteredStudents.setOnClickListener(v ->
-                showMessage("Registered Students")
+                showMessage(getString(R.string.title_registered_students))
         );
 
         binding.cardMonthlyReport.setOnClickListener(v ->
-                showMessage("Monthly Report")
+                showMessage(getString(R.string.title_monthly_report))
         );
 
         binding.cardSendNotification.setOnClickListener(v ->
-                showMessage("Send Notification")
+                showMessage(getString(R.string.title_send_notification))
         );
 
         binding.buttonLogout.setOnClickListener(v -> {

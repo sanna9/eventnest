@@ -1,5 +1,6 @@
 package com.example.eventnest.ui.organizer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import com.example.eventnest.data.entity.Event;
 import com.example.eventnest.databinding.FragmentEventListBinding;
 import com.example.eventnest.ui.adapters.EventAdapter;
 import com.example.eventnest.util.AppExecutors;
+import com.example.eventnest.R;
 
 import java.util.List;
 
@@ -56,14 +58,17 @@ public class EventListFragment extends Fragment {
 
         db = AppDatabase.getInstance(requireContext());
 
-        // The Fragment decides what happens when a row is tapped.
-        adapter = new EventAdapter(event ->
-                Toast.makeText(
-                        requireContext(),
-                        event.getTitle(),
-                        Toast.LENGTH_SHORT
-                ).show()
-        );
+        // fragment decides what happens when a row is clicked
+        // Open detail page for the selected event
+        adapter = new EventAdapter(event -> {
+            Intent intent = new Intent(
+                    requireContext(),
+                    EventDetailsActivity.class
+            );
+
+            intent.putExtra("event_id", event.getEventID());
+            startActivity(intent);
+        });
 
         binding.recyclerEvents.setLayoutManager(
                 new LinearLayoutManager(requireContext())
@@ -77,14 +82,15 @@ public class EventListFragment extends Fragment {
                         .onBackPressed()
         );
 
-        // We will connect the Create Event screen in O3.
-        binding.buttonCreateEvent.setOnClickListener(v ->
-                Toast.makeText(
-                        requireContext(),
-                        "Create Event screen comes next",
-                        Toast.LENGTH_SHORT
-                ).show()
-        );
+
+        // Open the Create Event screen
+        binding.buttonCreateEvent.setOnClickListener(v -> {
+            Intent intent = new Intent(
+                    requireContext(),
+                    EventFormActivity.class
+            );
+            startActivity(intent);
+        });
     }
 
     /**
@@ -133,7 +139,7 @@ public class EventListFragment extends Fragment {
 
                     Toast.makeText(
                             binding.getRoot().getContext(),
-                            "Could not load events",
+                            getString(R.string.error_events_load),
                             Toast.LENGTH_LONG
                     ).show();
                 });

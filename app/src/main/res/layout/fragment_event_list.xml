@@ -11,7 +11,7 @@
         android:id="@+id/buttonBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Back"
+        android:text="@string/button_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -20,7 +20,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:text="Manage Events"
+        android:text="@string/title_manage_events"
         android:textColor="@color/eventnest_text"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -45,7 +45,7 @@
         android:id="@+id/textEmpty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="No events yet"
+        android:text="@string/message_no_events"
         android:textColor="@color/eventnest_text_secondary"
         android:visibility="gone"
         app:layout_constraintTop_toTopOf="@id/recyclerEvents"
@@ -58,8 +58,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="+"
-        android:contentDescription="Create event"
+        android:text="@string/button_add_event"
+        android:contentDescription="@string/description_create_event"
         app:backgroundTint="@color/eventnest_primary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

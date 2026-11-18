@@ -43,4 +43,56 @@
     <string name="error_signup_failed">Could not create the account. Please try again.</string>
     <string name="toast_account_created">Account created. Please sign in.</string>
 
+    <!-- Organizer dashboard -->
+    <string name="title_organizer_dashboard">Organizer Dashboard</string>
+    <string name="title_manage_events">Manage Events</string>
+    <string name="title_registered_students">Registered Students</string>
+    <string name="title_monthly_report">Monthly Report</string>
+    <string name="title_send_notification">Send Notification</string>
+
+    <!-- Shared event controls -->
+    <string name="button_back">Back</string>
+    <string name="button_save">Save</string>
+    <string name="button_edit">Edit</string>
+    <string name="button_delete">Delete</string>
+    <string name="button_add_event">+</string>
+    <string name="description_create_event">Create event</string>
+    <string name="message_no_events">No events yet</string>
+
+    <!-- Event form -->
+    <string name="title_create_event">Create Event</string>
+    <string name="title_edit_event">Edit Event</string>
+    <string name="label_event_title">Title</string>
+    <string name="label_event_description">Description</string>
+    <string name="label_event_location">Location</string>
+    <string name="label_event_date">Date</string>
+    <string name="label_event_time">Time</string>
+    <string name="label_event_capacity">Capacity</string>
+    <string name="button_select_date">Select date</string>
+    <string name="button_select_time">Select time</string>
+
+    <!-- Event validation and feedback -->
+    <string name="error_event_title_required">Enter a title</string>
+    <string name="error_event_description_required">Enter a description</string>
+    <string name="error_event_location_required">Enter a location</string>
+    <string name="error_capacity_positive">Enter a number above 0</string>
+    <string name="error_capacity_invalid">Enter a valid whole number</string>
+    <string name="error_event_datetime_required">Select the event date and time</string>
+    <string name="error_event_access">Event not found or access denied</string>
+    <string name="error_database_operation">Database operation failed</string>
+    <string name="error_events_load">Could not load events</string>
+    <string name="toast_event_saved">Event saved</string>
+
+    <!-- Event details -->
+    <string name="title_event_details">Event Details</string>
+    <string name="label_registered">Registered</string>
+    <string name="label_about_event">ABOUT THIS EVENT</string>
+    <string name="event_registration_count">%1$d of %2$d</string>
+
+    <!-- Event deletion -->
+    <string name="dialog_delete_event_title">Delete event?</string>
+    <string name="dialog_delete_event_message">This will delete the event and its linked registrations, history and notifications. Continue?</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="toast_event_deleted">Event deleted</string>
+
 </resources>

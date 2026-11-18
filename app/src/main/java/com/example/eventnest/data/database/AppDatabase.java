@@ -1,9 +1,12 @@
 package com.example.eventnest.data.database;
+
 import android.content.Context;
 
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.migration.Migration;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.eventnest.data.dao.UserDao;
 import com.example.eventnest.data.dao.EventDao;
@@ -22,7 +25,7 @@ import com.example.eventnest.data.entity.Notification;
                 Registration.class,
                 Notification.class
         },
-        version = 1,
+        version = 2,
         // Remove all data whenever rebuild project
         // avoid firing errors
         exportSchema = false
@@ -34,25 +37,40 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract RegistrationDao registrationDao();
     public abstract NotificationDao notificationDao();
 
-    /**
-     *  Singleton pattern for performance optimize
-     *  volatile for preventing thread-local caching issues where changes made or
-     *  double-checked locking
-     */
     private static volatile AppDatabase instance;
 
+    /*Upgrades an existing version 1 database to version 2
+     * Adds Capacity without deleting existing records */
+    static final Migration MIGRATION_1_2 = new Migration(1, 2) {
+
+        @Override
+        public void migrate(SupportSQLiteDatabase database) {
+            database.execSQL(
+                    "ALTER TABLE Events " +
+                            "ADD COLUMN Capacity INTEGER NOT NULL DEFAULT 0"
+            );
+        }
+    };
+
+    /*Returns the shared database instance.
+     * Creates it once and applies migrations when required */
     public static AppDatabase getInstance(Context context) {
+
         if (instance == null) {
             synchronized (AppDatabase.class) {
                 if (instance == null) {
+
                     instance = Room.databaseBuilder(
-                            context.getApplicationContext(),
-                            AppDatabase.class,
-                            "EventNest.db"
-                    ).build();
+                                    context.getApplicationContext(),
+                                    AppDatabase.class,
+                                    "EventNest.db"
+                            )
+                            .addMigrations(MIGRATION_1_2)
+                            .build();
                 }
             }
         }
+
         return instance;
     }
 }
