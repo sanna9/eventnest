@@ -95,4 +95,9 @@
     <string name="button_cancel">Cancel</string>
     <string name="toast_event_deleted">Event deleted</string>
 
+    <!-- Registered students -->
+    <string name="label_select_event">Event</string>
+    <string name="message_no_registered_students">No active registrations for this event.</string>
+    <string name="total_registered_count">Total registered: %1$d</string>
+
 </resources>
