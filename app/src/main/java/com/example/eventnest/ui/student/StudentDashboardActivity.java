@@ -48,7 +48,7 @@ public class StudentDashboardActivity extends AppCompatActivity {
         binding.toolbar.setOnMenuItemClickListener(item -> {
             if (item.getItemId() == R.id.action_logout) {
                 session.logout();
-//                returnToLogin();
+                returnToLogin();
                 return true;
             }
             return false;
@@ -120,11 +120,11 @@ public class StudentDashboardActivity extends AppCompatActivity {
 
     /**
      * Testing logging out when user tried to access the activity without session (may be not neccessary)
+     */
      private void returnToLogin() {
      Intent intent = new Intent(this, LoginActivity.class);
      intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
      startActivity(intent);
      finish();
      }
-     */
 }

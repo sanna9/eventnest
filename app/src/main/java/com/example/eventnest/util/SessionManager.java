@@ -37,7 +37,7 @@ public class SessionManager {
         }
     }
 
-    public void logout() {
+    public void     logout() {
         prefs.edit().clear().apply();
     }
 }

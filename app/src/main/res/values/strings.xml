@@ -43,7 +43,7 @@
     <string name="error_signup_failed">Could not create the account. Please try again.</string>
     <string name="toast_account_created">Account created. Please sign in.</string>
 
-        <!-- Organizer dashboard -->
+    <!-- Organizer dashboard -->
     <string name="title_organizer_dashboard">Organizer Dashboard</string>
     <string name="title_manage_events">Manage Events</string>
     <string name="title_registered_students">Registered Students</string>
@@ -82,5 +82,17 @@
     <string name="error_database_operation">Database operation failed</string>
     <string name="error_events_load">Could not load events</string>
     <string name="toast_event_saved">Event saved</string>
+
+    <!-- Event details -->
+    <string name="title_event_details">Event Details</string>
+    <string name="label_registered">Registered</string>
+    <string name="label_about_event">ABOUT THIS EVENT</string>
+    <string name="event_registration_count">%1$d of %2$d</string>
+
+    <!-- Event deletion -->
+    <string name="dialog_delete_event_title">Delete event?</string>
+    <string name="dialog_delete_event_message">This will delete the event and its linked registrations, history and notifications. Continue?</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="toast_event_deleted">Event deleted</string>
 
 </resources>

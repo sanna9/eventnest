@@ -58,14 +58,17 @@ public class EventListFragment extends Fragment {
 
         db = AppDatabase.getInstance(requireContext());
 
-        // The Fragment decides what happens when a row is tapped.
-        adapter = new EventAdapter(event ->
-                Toast.makeText(
-                        requireContext(),
-                        event.getTitle(),
-                        Toast.LENGTH_SHORT
-                ).show()
-        );
+        // fragment decides what happens when a row is clicked
+        // Open detail page for the selected event
+        adapter = new EventAdapter(event -> {
+            Intent intent = new Intent(
+                    requireContext(),
+                    EventDetailsActivity.class
+            );
+
+            intent.putExtra("event_id", event.getEventID());
+            startActivity(intent);
+        });
 
         binding.recyclerEvents.setLayoutManager(
                 new LinearLayoutManager(requireContext())
