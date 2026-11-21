@@ -34,4 +34,7 @@ public interface EventDao {
             "WHERE EventDate LIKE :yearMonth || '-%' " +
             "ORDER BY EventDate, EventTime")
     List<Event> getMonthlyEvents(String yearMonth);
+
+    @Query("SELECT * FROM Events WHERE EventDate >= :today ORDER BY EventDate, EventTime")
+    List<Event> getUpComingEvent(String today);
 }

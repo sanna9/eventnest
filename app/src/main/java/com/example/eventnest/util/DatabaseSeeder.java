@@ -70,23 +70,23 @@ public class DatabaseSeeder {
         // Events (dates are relative to today)
         EventDao eventDao = db.eventDao();
         int welcome = addEvent(eventDao, organizerId, "Welcome Week Orientation",
-                "Meet clubs, staff and new friends.", -20, "10:00", "Main Hall");
+                "Meet clubs, staff and new friends.", -20, "10:00", "Main Hall", 25);
         int career = addEvent(eventDao, organizerId, "Career Fair",
-                "Talk to local employers about co-op and jobs.", -7, "13:00", "Gym A");
+                "Talk to local employers about co-op and jobs.", -7, "13:00", "Gym A", 20);
         int hackathon = addEvent(eventDao, organizerId, "Hackathon 2026",
-                "24-hour team coding challenge. Bring your laptop.", 2, "09:00", "Room B201");
+                "24-hour team coding challenge. Bring your laptop.", 2, "09:00", "Room B201", 21);
         int photo = addEvent(eventDao, organizerId, "Photography Workshop",
-                "Basics of composition and lighting.", 5, "15:30", "Art Studio 3");
+                "Basics of composition and lighting.", 5, "15:30", "Art Studio 3",45);
         int study = addEvent(eventDao, organizerId, "Study Skills Seminar",
-                "Time management and exam preparation tips.", 9, "12:00", "Library Room 2");
+                "Time management and exam preparation tips.", 9, "12:00", "Library Room 2",12);
         int movie = addEvent(eventDao, organizerId, "Movie Night",
-                "Free screening with snacks.", 14, "19:00", "Student Lounge");
+                "Free screening with snacks.", 14, "19:00", "Student Lounge", 50);
         int volunteer = addEvent(eventDao, organizerId, "Volunteer Day",
-                "Help with campus clean-up and the food drive.", 20, "09:30", "Courtyard");
+                "Help with campus clean-up and the food drive.", 20, "09:30", "Courtyard", 10);
 
         // No registrations on purpose: tests the empty state.
         addEvent(eventDao, organizerId, "Winter Concert",
-                "Student orchestra and choir performance.", 35, "18:30", "Auditorium");
+                "Student orchestra and choir performance.", 35, "18:30", "Auditorium",100);
 
         // Registrations
         // past event -> History
@@ -143,7 +143,7 @@ public class DatabaseSeeder {
 
     private static int addEvent(EventDao dao, int organizerId, String title,
                                 String description, int daysFromToday,
-                                String time, String location) {
+                                String time, String location, int capacity) {
         Event event = new Event();
         event.setOrganizerID(organizerId);
         event.setTitle(title);
@@ -151,6 +151,7 @@ public class DatabaseSeeder {
         event.setEventDate(DateUtils.daysFromToday(daysFromToday));
         event.setEventTime(time);
         event.setLocation(location);
+        event.setCapacity(capacity);
         return (int) dao.addEvent(event);
     }
 

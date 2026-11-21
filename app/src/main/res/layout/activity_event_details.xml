@@ -2,6 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -127,6 +128,7 @@
                     tools:text="Hall B, Engineering Building" />
 
                 <TextView
+                    android:id="@+id/textRegisteredLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -200,6 +202,26 @@
             android:textAllCaps="false"
             android:textColor="@color/white" />
 
+    </LinearLayout>
+
+    <!-- Student action: shown only for students -->
+    <LinearLayout
+        android:id="@+id/layoutStudentActions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:visibility="gone">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonRegister"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="@string/button_register"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            app:backgroundTint="@color/bg_register_button"
+            app:cornerRadius="28dp" />
     </LinearLayout>
 
 </LinearLayout>
