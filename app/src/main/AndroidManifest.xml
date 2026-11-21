@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EventNest">
         <activity
-            android:name=".ui.organizer.EventDetailsActivity"
+            android:name=".ui.shared.EventDetailsActivity"
             android:exported="false" />
         <activity
             android:name=".ui.organizer.EventFormActivity"

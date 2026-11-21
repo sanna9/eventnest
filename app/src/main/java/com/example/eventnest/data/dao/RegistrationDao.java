@@ -72,4 +72,9 @@ public interface RegistrationDao {
             "AND Registrations.Status = 'Active' " +
             "ORDER BY Users.Name")
     List<User> getRegisteredStudents(int eventID);
+
+    // count many students are currently registered for this event
+    @Query("SELECT COUNT(*) FROM Registrations " +
+            "WHERE EventID = :eventID AND Status = 'Active'")
+    int countActiveRegistrations(int eventID);
 }
