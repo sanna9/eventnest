@@ -58,7 +58,7 @@
     <string name="button_add_event">+</string>
     <string name="description_create_event">Create event</string>
     <string name="message_no_events">No events yet</string>
-
+    <string name="error_load_events">Could not load events</string>
     <!-- Event form -->
     <string name="title_create_event">Create Event</string>
     <string name="title_edit_event">Edit Event</string>
@@ -83,11 +83,25 @@
     <string name="error_events_load">Could not load events</string>
     <string name="toast_event_saved">Event saved</string>
 
-    <!-- Event details -->
+    <!-- Event details (Organizer) -->
     <string name="title_event_details">Event Details</string>
     <string name="label_registered">Registered</string>
     <string name="label_about_event">ABOUT THIS EVENT</string>
     <string name="event_registration_count">%1$d of %2$d</string>
+    <string name="label_seats_left">Seats left</string>
+
+    <!-- Event details (Student) -->
+    <string name="event_seats_left">%1$d of %2$d</string>
+    <string name="button_register">Register</string>
+    <string name="button_already_registered">Already registered</string>
+    <string name="button_event_full">Event is full</string>
+    <string name="button_event_past">Event has passed</string>
+    <string name="dialog_register_title">Register for this event?</string>
+    <string name="dialog_register_message">You can cancel later from My Registrations.</string>
+    <string name="toast_registered">You are registered</string>
+    <string name="error_already_registered">You are already registered</string>
+    <string name="error_event_full">Sorry, this event just filled up</string>
+    <string name="error_event_passed">This event has already passed</string>
 
     <!-- Event deletion -->
     <string name="dialog_delete_event_title">Delete event?</string>
