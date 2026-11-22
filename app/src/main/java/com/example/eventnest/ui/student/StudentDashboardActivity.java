@@ -95,10 +95,16 @@ public class StudentDashboardActivity extends AppCompatActivity {
      * @param itemId
      */
     private void showTab(int itemId) {
-        // TODO: replace each placeholder with the real fragment of that tab.
         int titleRes = titleFor(itemId);
-        Fragment fragment = StudentPlaceholderFragment.newInstance(getString(titleRes));
+        Fragment fragment;
 
+        if (itemId == R.id.nav_events) {
+            // S4
+            fragment = new AvailableEventsFragment();
+        } else {
+            // TODO: replace each placeholder when its screen is built (Considering switch: cases)
+            fragment = StudentPlaceholderFragment.newInstance(getString(titleRes));
+        }
         binding.toolbar.setTitle(titleRes);
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.studentFragmentContainer, fragment)
@@ -118,9 +124,6 @@ public class StudentDashboardActivity extends AppCompatActivity {
         return R.string.title_available_events;
     }
 
-    /**
-     * Testing logging out when user tried to access the activity without session (may be not neccessary)
-     */
      private void returnToLogin() {
      Intent intent = new Intent(this, LoginActivity.class);
      intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

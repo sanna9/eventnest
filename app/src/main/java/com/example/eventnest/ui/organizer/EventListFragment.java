@@ -16,6 +16,7 @@ import com.example.eventnest.data.database.AppDatabase;
 import com.example.eventnest.data.entity.Event;
 import com.example.eventnest.databinding.FragmentEventListBinding;
 import com.example.eventnest.ui.adapters.EventAdapter;
+import com.example.eventnest.ui.shared.EventDetailsActivity;
 import com.example.eventnest.util.AppExecutors;
 import com.example.eventnest.R;
 
