@@ -100,4 +100,7 @@
     <string name="message_no_registered_students">No active registrations for this event.</string>
     <string name="total_registered_count">Total registered: %1$d</string>
 
+    <string name="error_registered_students_load">Could not load registered students.</string>
+    <string name="error_organizer_events_load">Could not load events.</string>
+
 </resources>

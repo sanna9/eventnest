@@ -51,7 +51,7 @@ public class OrganizerDashboardActivity extends AppCompatActivity {
 
         // screens will be connected in upcoming tasks
         binding.cardRegisteredStudents.setOnClickListener(v ->
-                showMessage(getString(R.string.title_registered_students))
+                openRegisteredStudents()
         );
 
         binding.cardMonthlyReport.setOnClickListener(v ->
@@ -134,5 +134,25 @@ public class OrganizerDashboardActivity extends AppCompatActivity {
 
         startActivity(intent);
         finish();
+    }
+
+    /**
+     * Opens the registered students screen.
+     * Back returns to the organizer dashboard.
+     */
+    private void openRegisteredStudents() {
+
+        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+            return;
+        }
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(
+                        R.id.organizerFragmentContainer,
+                        new RegisteredStudentsFragment()
+                )
+                .addToBackStack("registered_students")
+                .commit();
     }
 }
