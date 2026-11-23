@@ -55,7 +55,7 @@ public class OrganizerDashboardActivity extends AppCompatActivity {
         );
 
         binding.cardMonthlyReport.setOnClickListener(v ->
-                showMessage(getString(R.string.title_monthly_report))
+                openMonthlyEvents()
         );
 
         binding.cardSendNotification.setOnClickListener(v ->
@@ -153,6 +153,24 @@ public class OrganizerDashboardActivity extends AppCompatActivity {
                         new RegisteredStudentsFragment()
                 )
                 .addToBackStack("registered_students")
+                .commit();
+    }
+    /**
+     * Opens the monthly event list.
+     * Adds it to the back stack so Back returns to the dashboard.
+     */
+    private void openMonthlyEvents() {
+        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+            return;
+        }
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(
+                        R.id.organizerFragmentContainer,
+                        new MonthlyEventsFragment()
+                )
+                .addToBackStack("monthly_events")
                 .commit();
     }
 }

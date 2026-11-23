@@ -117,4 +117,16 @@
     <string name="error_registered_students_load">Could not load registered students.</string>
     <string name="error_organizer_events_load">Could not load events.</string>
 
+    <!-- Monthly Events / Report -->
+    <string name="label_select_month">Select month</string>
+    <string name="label_select_year">Select year</string>
+    <string name="message_no_monthly_events">No events for the selected month</string>
+    <string name="error_monthly_events_load">Could not load monthly events. Please try again.</string>
+    <string name="title_monthly_events">Monthly Events</string>
+    <string name="label_month">Month</string>
+    <string name="label_year">Year</string>
+    <string name="label_monthly_events_total">events</string>
+    <string name="label_monthly_registrations_total">registrations</string>
+    <string name="option_all_months">All months</string>
+
 </resources>
