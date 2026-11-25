@@ -58,9 +58,15 @@ public class OrganizerDashboardActivity extends AppCompatActivity {
                 openMonthlyEvents()
         );
 
-        binding.cardSendNotification.setOnClickListener(v ->
-                showMessage(getString(R.string.title_send_notification))
-        );
+        // Open the screen for sending event updates and reminders.
+        binding.cardSendNotification.setOnClickListener(v -> {
+            Intent intent = new Intent(
+                    OrganizerDashboardActivity.this,
+                    SendNotificationActivity.class
+            );
+
+            startActivity(intent);
+        });
 
         binding.buttonLogout.setOnClickListener(v -> {
             session.logout();
