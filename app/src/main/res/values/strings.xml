@@ -129,4 +129,21 @@
     <string name="label_monthly_registrations_total">registrations</string>
     <string name="option_all_months">All months</string>
 
+    <!-- Send Notifications and Reminders -->
+    <string name="label_notification_message">Message</string>
+    <string name="hint_notification_message">Enter an event update or reminder</string>
+    <string name="notification_recipients_count">Registered recipients: %1$d</string>
+    <string name="notification_recipients_loading">Loading recipients…</string>
+    <string name="notification_recipients_info">This message will be sent to all actively registered students for the selected event.</string>
+
+    <string name="button_send_notification">Send Notification / Reminder</string>
+    <string name="notification_sending">Sending…</string>
+
+    <string name="error_notification_event_required">Select an event</string>
+    <string name="error_notification_message_required">Enter a message</string>
+    <string name="error_notification_no_recipients">No students are actively registered for this event</string>
+    <string name="error_notification_recipients_load">Could not load recipients. Please try again.</string>
+    <string name="error_notification_send">Could not send the message. Please try again.</string>
+    <string name="toast_notification_sent">Message sent to %1$d registered students</string>
+
 </resources>
