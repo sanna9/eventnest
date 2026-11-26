@@ -129,4 +129,14 @@
     <string name="label_monthly_registrations_total">registrations</string>
     <string name="option_all_months">All months</string>
 
+    <!--  My Registration  -->
+    <string name="empty_registrations">You have no upcoming registrations</string>
+    <string name="empty_history">No past or cancelled registrations</string>
+    <string name="dialog_cancel_registration_title">Cancel registration?</string>
+    <string name="dialog_cancel_registration_message">You will no longer be registered for %1$s. You can register again later if seats are available.</string>
+    <string name="button_cancel_registration">Cancel registration</string>
+    <string name="button_keep_registration">Keep</string>
+    <string name="toast_registration_cancelled">Registration cancelled</string>
+    <string name="badge_past">Past</string>
+    <string name="badge_cancelled">Cancelled</string>
 </resources>
