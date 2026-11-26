@@ -3,6 +3,8 @@ package com.example.eventnest.data.dao;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+
+import com.example.eventnest.data.entity.Event;
 import com.example.eventnest.data.entity.Registration;
 import com.example.eventnest.data.entity.User;
 import java.util.List;
@@ -77,4 +79,24 @@ public interface RegistrationDao {
     @Query("SELECT COUNT(*) FROM Registrations " +
             "WHERE EventID = :eventID AND Status = 'Active'")
     int countActiveRegistrations(int eventID);
+
+    @Query("SELECT Events.* FROM Registrations " +
+            "INNER JOIN Events ON Registrations.EventID = Events.EventID " +
+            "WHERE Registrations.StudentID = :studentID " +
+            "AND Registrations.Status = 'Active' " +
+            "AND Events.EventDate >= :today " +
+            "ORDER BY Events.EventDate, Events.EventTime")
+    List<Event> getCurrentRegisteredEvents(int studentID, String today);
+
+    @Query("SELECT Events.* FROM Registrations " +
+            "INNER JOIN Events ON Registrations.EventID = Events.EventID " +
+            "WHERE Registrations.StudentID = :studentId " +
+            "AND (Events.EventDate < :today OR Registrations.Status = 'Cancelled') " +
+            "ORDER BY Events.EventDate DESC, Events.EventTime DESC")
+    List<Event> getHistoryEvents(int studentId, String today);
+
+    @Query("SELECT EventID FROM Registrations " +
+            "WHERE StudentID = :studentID AND Status = 'Cancelled'")
+    List<Integer> getCancelledEventIDs(int studentID);
+
 }

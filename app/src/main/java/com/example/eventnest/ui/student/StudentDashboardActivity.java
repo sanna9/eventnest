@@ -31,10 +31,10 @@ public class StudentDashboardActivity extends AppCompatActivity {
 
         session = new SessionManager(this);
         // Only a signed-in student may see this screen.
-        //        if (!session.isLoggedIn() || session.getRole() != Role.STUDENT) {
-        //            returnToLogin();
-        //            return;
-        //        }
+        if (!session.isLoggedIn() || session.getRole() != Role.STUDENT) {
+            returnToLogin();
+            return;
+        }
 
         // Setup views
         binding = ActivityStudentDashboardBinding.inflate(getLayoutInflater());
@@ -99,8 +99,11 @@ public class StudentDashboardActivity extends AppCompatActivity {
         Fragment fragment;
 
         if (itemId == R.id.nav_events) {
-            // S4
             fragment = new AvailableEventsFragment();
+        } else if (itemId == R.id.nav_history){
+            fragment = new RegistrationHistoryFragment();
+        } else if (itemId == R.id.nav_registrations){
+            fragment = new MyRegistrationFragment();
         } else {
             // TODO: replace each placeholder when its screen is built (Considering switch: cases)
             fragment = StudentPlaceholderFragment.newInstance(getString(titleRes));

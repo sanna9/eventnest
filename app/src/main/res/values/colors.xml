@@ -7,4 +7,5 @@
     <color name="eventnest_text">#16212B</color>
     <color name="eventnest_text_secondary">#5F6B76</color>
     <color name="eventnest_stroke">#E0DCD5</color>
+    <color name="eventnest_error">#B3261E</color>
 </resources>
