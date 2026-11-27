@@ -156,4 +156,18 @@
     <string name="error_notification_send">Could not send the message. Please try again.</string>
     <string name="toast_notification_sent">Message sent to %1$d registered students</string>
 
+    <!--  Student's profile  -->
+    <string name="title_profile">My Profile</string>
+    <string name="label_edit_name">Name</string>
+    <string name="label_change_password">Change password</string>
+    <string name="hint_current_password">Current password</string>
+    <string name="hint_new_password">New password</string>
+    <string name="button_save_name">Save name</string>
+    <string name="button_update_password">Update password</string>
+    <string name="updating">Updating…</string>
+    <string name="toast_name_updated">Name updated</string>
+    <string name="toast_password_updated">Password updated</string>
+    <string name="error_current_password_wrong">Current password is incorrect</string>
+    <string name="error_password_same">New password must be different</string>
+
 </resources>

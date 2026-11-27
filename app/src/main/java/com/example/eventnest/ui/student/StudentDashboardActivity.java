@@ -46,9 +46,8 @@ public class StudentDashboardActivity extends AppCompatActivity {
         // inflate tool bar (on the top)
         binding.toolbar.inflateMenu(R.menu.menu_student_toolbar);
         binding.toolbar.setOnMenuItemClickListener(item -> {
-            if (item.getItemId() == R.id.action_logout) {
-                session.logout();
-                returnToLogin();
+            if (item.getItemId() == R.id.action_profile) {
+                startActivity(new Intent(this, ProfileActivity.class));
                 return true;
             }
             return false;
