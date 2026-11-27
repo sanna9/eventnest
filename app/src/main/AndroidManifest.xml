@@ -30,6 +30,10 @@
             android:name=".ui.organizer.SendNotificationActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.student.ProfileActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
             android:name=".ui.auth.LoginActivity"
             android:exported="true">
             <intent-filter>
